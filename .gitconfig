@@ -1,0 +1,57 @@
+[user]
+name = Eugene Rodionov
+email = 
+[alias]
+#git log aliases
+l = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%an]" --decorate --date=short
+logs = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+
+#list all git aliases
+alias = config --get-regexp alias
+
+st = status -sb
+co = checkout
+br = branch -vv
+
+#git add aliases
+a = add
+ap = add -p
+
+#git rebase aliases
+rb = rebase -s recursive -X patience
+
+#git clean aliases
+cleancheckfiles = clean -n
+cleancheckall = clean -nd
+cleanfiles = clean -f
+cleanall = clean -fd
+cleaninteractive = clean -i
+
+#git commit aliases
+cmnv = commit --no-verify -m
+cm = commit -m
+cmamend = commit --amend -m
+cmamendnoedit = commit --amend --no-edit
+
+#git diff aliases
+ds = diff --stat
+dsc = diff --stat --cached
+
+#git stash aliases
+stsh = stash --keep-index
+staash = stash --include-untracked
+staaash = stash --all
+
+#show all branches with name
+which = !git br -a --color | grep -i
+whichl = !git br --color | grep -i
+whichr = !git br -r --color | grep -i
+
+#for times when I accidentally type in git with clear command
+clear = !clear
+
+#commits for scrum report aka what I did yesterday
+scrumreport = !git log --all --author=$USER --since='10am yesterday' --format='%Cblue[%an: %ar]%Creset %C(yellow)(%Creset%Cgreen%hT%Creset%C(yellow)) %s%Creset'
+
+[push]
+default = simple
